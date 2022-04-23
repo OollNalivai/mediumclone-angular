@@ -20,6 +20,13 @@ yarn-error.log
 .settings/
 *.sublime-workspace
 
+/.idea
+.vscode
+.angular
+ngsw-config.json
+src/assets/**/*.png
+src/manifest.webmanifest
+
 # Visual Studio Code
 .vscode/*
 !.vscode/settings.json
