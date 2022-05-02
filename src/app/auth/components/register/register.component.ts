@@ -9,7 +9,6 @@ import { registerAction } from '../../store/actions/register.action';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
   form: FormGroup;
 
   constructor(private fb: FormBuilder, private store: Store) {
