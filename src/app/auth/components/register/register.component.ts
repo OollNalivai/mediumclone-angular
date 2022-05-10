@@ -4,6 +4,7 @@ import { select, Store } from '@ngrx/store'
 import { registerAction } from '../../store/actions/register.action';
 import { Observable } from 'rxjs'
 import { isSubmittingSelector } from '../../store/selectors'
+import { AppStateInterface } from '../../../shared/types/appState.interface'
 
 @Component({
   selector: 'mc-register',
@@ -15,7 +16,7 @@ export class RegisterComponent implements OnInit {
   form: FormGroup;
   isSubmitting$: Observable<boolean>
 
-  constructor(private fb: FormBuilder, private store: Store) {
+  constructor(private fb: FormBuilder, private store: Store<AppStateInterface>) {
   }
 
   ngOnInit(): void {
