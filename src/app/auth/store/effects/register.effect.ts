@@ -8,6 +8,7 @@ import {
 import { catchError, map, of, switchMap } from 'rxjs'
 import { AuthService } from '../../services/auth.service'
 import { CurrentUserInterface } from '../../../shared/types/currentUser.interface'
+import { HttpErrorResponse } from '@angular/common/http'
 
 @Injectable()
 
@@ -22,9 +23,9 @@ export class RegisterEffect {
           console.log('current User', currentUser)
           return registerSuccessAction({ currentUser })
         }),
-        catchError(() => {
+        catchError((errorResponse: HttpErrorResponse) => {
           console.log('Register Effect Error', catchError)
-          return of(registerFailureAction())
+          return of(registerFailureAction({ errors: errorResponse.error.errors }))
         })
       )
     })
