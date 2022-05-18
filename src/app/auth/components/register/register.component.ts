@@ -6,6 +6,7 @@ import { Observable } from 'rxjs'
 import { isSubmittingSelector } from '../../store/selectors'
 import { AppStateInterface } from '../../../shared/types/appState.interface'
 import { RegisterRequestInterface } from '../../types/registerRequest.interface'
+import { BackendErrorsInterface } from '../../../shared/types/backendErrors.interface'
 
 @Component({
   selector: 'mc-register',
@@ -16,6 +17,7 @@ export class RegisterComponent implements OnInit {
 
   form: FormGroup;
   isSubmitting$: Observable<boolean>
+  backendErrors$: Observable<BackendErrorsInterface | null>
 
   constructor(private fb: FormBuilder, private store: Store<AppStateInterface>) {
   }
