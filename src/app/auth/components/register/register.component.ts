@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store'
 import { registerAction } from '../../store/actions/register.action';
 import { Observable } from 'rxjs'
-import { isSubmittingSelector } from '../../store/selectors'
+import { isSubmittingSelector, validationErrorsSelector } from '../../store/selectors'
 import { AppStateInterface } from '../../../shared/types/appState.interface'
 import { RegisterRequestInterface } from '../../types/registerRequest.interface'
 import { BackendErrorsInterface } from '../../../shared/types/backendErrors.interface'
@@ -37,7 +37,8 @@ export class RegisterComponent implements OnInit {
 
   initValues(): void {
     this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector))
-    console.log(this.isSubmitting$)
+    this.backendErrors$ = this.store.pipe(select(validationErrorsSelector))
+    console.log(this.isSubmitting$, this.backendErrors$)
   }
 
   onSubmit(): void {
