@@ -21,6 +21,7 @@ export class RegisterEffect {
       return this.authService.register(request).pipe(
         map((currentUser: CurrentUserInterface) => {
           console.log('current User', currentUser)
+          // window.localStorage.setItem('accessToken', currentUser.token)
           return registerSuccessAction({ currentUser })
         }),
         catchError((errorResponse: HttpErrorResponse) => {
