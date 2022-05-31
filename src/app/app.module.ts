@@ -9,6 +9,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http'
 import { EffectsModule } from '@ngrx/effects';
+import { TopBarModule } from './shared/modules/topBar/topBar.module'
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { EffectsModule } from '@ngrx/effects';
       logOnly: environment.production,
       autoPause: true, // Pauses recording actions and state changes when the extension window is not open
     }),
+    TopBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
