@@ -5,9 +5,10 @@ import { loginAction, loginFailureAction, loginSuccessAction } from './actions/l
 
 const initialState: AuthStateInterface = {
   isSubmitting: false,
+  isLoading: false,
   currentUser: null,
   isLoggedIn: null,
-  validationErrors: null
+  validationErrors: null,
 }
 
 export const authReducer = createReducer(
