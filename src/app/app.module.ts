@@ -11,7 +11,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { EffectsModule } from '@ngrx/effects';
 import { TopBarModule } from './shared/modules/topBar/topBar.module'
 import { PersistenceService } from './shared/services/persistence.service'
-import { AuthInterceptor } from './shared/services/authInterceptor.service'
+import { AuthInterceptor } from './shared/services/authInterceptor.service';
 
 @NgModule({
   declarations: [
