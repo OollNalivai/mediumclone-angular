@@ -5,6 +5,6 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
 })
 
-export class globalFeedModule {
+export class GlobalFeedModule {
 
 }
