@@ -12,11 +12,13 @@ import { EffectsModule } from '@ngrx/effects';
 import { TopBarModule } from './shared/modules/topBar/topBar.module'
 import { PersistenceService } from './shared/services/persistence.service'
 import { AuthInterceptor } from './shared/services/authInterceptor.service';
-import { GlobalFeedModule } from './globalFeed/globalFeed.module'
+import { GlobalFeedModule } from './globalFeed/globalFeed.module';
+import { FeedComponent } from './shared/modules/feed/components/feed/feed.component'
 
 @NgModule({
   declarations: [
     AppComponent,
+    FeedComponent,
   ],
   imports: [
     BrowserModule,
