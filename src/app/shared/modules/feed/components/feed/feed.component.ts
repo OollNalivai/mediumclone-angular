@@ -36,14 +36,16 @@ export class FeedComponent implements OnInit, OnDestroy {
     this.isLoading$ = this.store.pipe(select(isLoadingSelector));
     this.error$ = this.store.pipe(select(errorSelector));
     this.feed$ = this.store.pipe(select(feedSelector));
-    this.baseUrl = this.router.url.split('?')[0];
+    this.baseUrl = this.router.url.split('?')[0]; // TODO: fix array index 0
   }
 
   initializeListeners(): void {
     this.queryParamsSubscription = this.route.queryParams.subscribe(
       (params: Params) => {
-      this.currentPage = Number(params || '1')
-      console.log('currentPage', this.currentPage)
+        console.log('params', params)
+
+        this.currentPage = Number(params['page'] || '1') // не приходит парамс
+      // console.log('currentPage', this.currentPage)
     })
   }
 
