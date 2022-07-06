@@ -25,7 +25,7 @@ import { GlobalFeedModule } from './globalFeed/globalFeed.module';
     AppRoutingModule,
     AuthModule,
     HttpClientModule,
-    StoreModule.forRoot({router: RouterReducer}),
+    StoreModule.forRoot({router: routerReducer}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
