@@ -3,12 +3,14 @@
   <li *ngFor='let page of pages'
       class='page-item'
       [ngClass]='{active: currentPageProps === page}'>
-
-    <a [routerLink]='urlProps'
+<!-- mb delete [] in urlProps-->
+    <a [routerLink]='[urlProps]'
        class='page-link'
-       [queryParams]='{page: page}'>{{page}}
+       [queryParams]='{page: page}'>{{ page }}
     </a>
 
   </li>
+
+  total: {{ totalProps }},limit: {{ limitProps }}, baseUrl:{{ urlProps }}, currentPage:{{ currentPageProps }},pages: {{ pages }}
 
 </ul>

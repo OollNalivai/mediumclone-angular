@@ -6,7 +6,7 @@ import { GetFeedResponseInterface } from './types/getFeedResponse.interface'
 import { errorSelector, feedSelector, isLoadingSelector } from './store/selectors'
 import { environment } from '../../../../../../environments/environment'
 import { ActivatedRoute, Params, Router } from '@angular/router'
-import { parse, parseUrl, stringify } from 'query-string'
+import { parseUrl, stringify } from 'query-string'
 
 @Component({
   selector: 'mc-feed',
