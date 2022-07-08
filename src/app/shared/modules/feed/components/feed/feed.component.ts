@@ -20,7 +20,7 @@ export class FeedComponent implements OnInit, OnDestroy {
   isLoading$: Observable<boolean>
   error$: Observable<string | null>
   feed$: Observable<GetFeedResponseInterface | null>
-  limit: number = environment.limit
+  limit: number = environment.limit //  = 3
   baseUrl: string
   queryParamsSubscription: Subscription
   currentPage: number
@@ -42,10 +42,7 @@ export class FeedComponent implements OnInit, OnDestroy {
   initializeListeners(): void {
     this.queryParamsSubscription = this.route.queryParams.subscribe(
       (params: Params) => {
-        // console.log('params', params)
-
-        this.currentPage = Number(params['page'] || '1') // не приходит парамс
-      // console.log('currentPage', this.currentPage)
+        this.currentPage = Number(params['page'] || '1') // № текущая выбранная страница
         this.fetchFeed()
     })
   }
