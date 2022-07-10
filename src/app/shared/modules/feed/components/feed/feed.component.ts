@@ -37,6 +37,7 @@ export class FeedComponent implements OnInit, OnDestroy {
     this.error$ = this.store.pipe(select(errorSelector));
     this.feed$ = this.store.pipe(select(feedSelector));
     this.baseUrl = this.router.url.split('?')[0]; // TODO: fix array index 0
+
   }
 
   initializeListeners(): void {
