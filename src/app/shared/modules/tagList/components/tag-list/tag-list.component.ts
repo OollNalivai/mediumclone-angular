@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core'
+import { PopularTagType } from '../../../../types/popularTag.type'
 
 @Component({
   selector: 'mc-tag-list',
@@ -7,6 +8,6 @@ import { Component, Input } from '@angular/core'
 })
 export class TagListComponent {
 
-  @Input('tags') tags: string[];
+  @Input('tags') tagsProps: PopularTagType[];
 
 }

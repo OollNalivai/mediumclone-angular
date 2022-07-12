@@ -13,16 +13,13 @@ export class PaginationComponent implements OnInit {
   @Input('currentPage') currentPageProps: number
   @Input('url') urlProps: string
 
-  pagesCount: number //+
-  pages: number[] // + [1, 2]
+  pagesCount: number
+  pages: number[]
 
   constructor(private utilsService: UtilsService) {}
 
   ngOnInit(): void {
-    this.pagesCount = Math.ceil(this.totalProps / this.limitProps);
-    console.log('this.totalProps', this.totalProps, 'this.limitProps', this.limitProps )
+    this.pagesCount = Math.ceil(this.totalProps / this.limitProps) + 5; // TODO: Delete '+5'
     this.pages = this.utilsService.range(1, this.pagesCount);
-    console.log(this.pages, 'PAGES')
-    console.log(this.pagesCount, 'PAGES')
   }
 }

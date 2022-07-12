@@ -36,7 +36,7 @@
   </div>
 
 <!-- приходит кастрированный (feed$ | async).articlesCount до длинны лимита -->
-  <div style='font-size: 28px; color: red'>{{(feed$ | async).articlesCount}} должно быть 4</div>
+  <div style='font-size: 28px; color: red'>{{(feed$ | async).articlesCount}} (feed$ | async).articlesCount</div>
   <mc-pagination
     [total]='(feed$ | async).articlesCount'
     [limit]='limit'
