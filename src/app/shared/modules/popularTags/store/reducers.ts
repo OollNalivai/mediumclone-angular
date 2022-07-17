@@ -1,5 +1,5 @@
 import { PopularTagsStateInterface } from '../types/popularTagsState.interface'
-import { createReducer, on } from '@ngrx/store'
+import { Action, createReducer, on } from '@ngrx/store'
 import {
   getPopularTagsAction,
   getPopularTagsFailureAction,
@@ -37,3 +37,7 @@ const popularTagsReducer = createReducer(
     })
   )
 )
+
+export function reducers(state: PopularTagsStateInterface, action: Action) {
+  return popularTagsReducer(state, action)
+}

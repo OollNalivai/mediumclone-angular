@@ -21,7 +21,6 @@ export class GetPopularTagsEffect {
         .pipe(map((popularTags: PopularTagType[]) => {
             return getPopularTagsSuccessAction({ popularTags })
           }),
-
           catchError(() => {
             return of(getPopularTagsFailureAction())
           })
