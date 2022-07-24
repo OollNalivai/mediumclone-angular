@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core'
-import { Store } from '@ngrx/store'
+import { select, Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
+import { isLoggedInSelector } from '../../../../../auth/store/selectors'
 
 @Component({
   selector: 'mc-feed-toggle',
@@ -16,6 +17,11 @@ export class FeedToggleComponent implements OnInit {
   constructor(private store: Store) { }
 
   ngOnInit(): void {
+    this.initializeValues()
+  }
+
+  initializeValues(): void {
+    this.isLoggedIn$ = this.store.pipe(select(isLoggedInSelector))
   }
 
 }
