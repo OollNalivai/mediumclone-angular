@@ -19,7 +19,8 @@ import { BannerModule } from './shared/modules/banner/banner.module'
 import { PopularTagsModule } from './shared/modules/popularTags/popularTags.module'
 import { FeedModule } from './shared/modules/feed/components/feed.module'
 import { FeedToggleModule } from './shared/modules/feedToggle/feedToggle.module'
-import { YourFeedModule } from './yourFeed/components/yourFeed.module'
+import { YourFeedModule } from './yourFeed/components/yourFeed.module';
+import { TagFeedModule } from './tagFeed/components/tagFeed.module'
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { YourFeedModule } from './yourFeed/components/yourFeed.module'
     PopularTagsModule,
     FeedModule,
     FeedToggleModule,
-    YourFeedModule
+    YourFeedModule,
+    TagFeedModule
   ],
   providers: [
     PersistenceService,
