@@ -1,36 +1,33 @@
-// import { Injectable } from '@angular/core'
-// import { createEffect, Actions, ofType } from '@ngrx/effects'
-// import {
-//   getFeedAction,
-//   getFeedSuccessAction,
-//   getFeedFailureAction
-// } from '../actions/getFeed.action'
-// import { catchError, map, of, switchMap } from 'rxjs'
-// import { FeedService } from '../../services/feed.service'
-// import { GetFeedResponseInterface } from '../../types/getFeedResponse.interface'
-//
-// @Injectable()
-//
-// export class GetFeedEffect {
-//
-//   getFeed$ = createEffect(() => this.actions$.pipe(
-//     ofType(getFeedAction),
-//     switchMap(({url}) => {
-//       return this.feedService.getFeed(url)
-//         .pipe(map((feed: GetFeedResponseInterface) => {
-//             console.log('feed', feed)
-//             return getFeedSuccessAction({ feed })
-//           }),
-//
-//           catchError(() => {
-//             return of(getFeedFailureAction())
-//           })
-//         )
-//     })
-//   ))
-//
-//   constructor(private actions$: Actions,
-//               private articleService: ArticleService) {
-//   }
-//
-// }
+import { Injectable } from '@angular/core'
+import { createEffect, Actions, ofType } from '@ngrx/effects'
+import { catchError, map, of, switchMap } from 'rxjs'
+import { getArticleAction, getArticleFailureAction, getArticleSuccessAction } from '../actions/getArticle.action'
+import { ArticleService as SharedArticleService } from '../../../shared/services/article.service'
+import { ArticleInterface } from '../../../shared/types/article.interface'
+
+
+@Injectable()
+
+export class GetFeedEffect {
+
+  getArticle$ = createEffect(() => this.actions$.pipe(
+    ofType(getArticleAction),
+    switchMap(({ slug }) => {
+      return this.sharedArticleService.getArticle( slug )
+        .pipe(map((article: ArticleInterface) => {
+            console.log('article', article)
+            return getArticleSuccessAction({ article })
+          }),
+
+          catchError(() => {
+            return of(getArticleFailureAction())
+          })
+        )
+    })
+  ))
+
+  constructor(private actions$: Actions,
+              private sharedArticleService: SharedArticleService) {
+  }
+
+}

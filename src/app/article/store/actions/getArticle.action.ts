@@ -4,7 +4,7 @@ import { ArticleInterface } from '../../../shared/types/article.interface'
 
 export const getArticleAction = createAction(
   ActionTypes.GET_ARTICLE,
-  props<{ slag: string }>()
+  props<{ slug: string }>()
 )
 
 export const getArticleSuccessAction = createAction(
