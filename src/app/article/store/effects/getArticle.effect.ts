@@ -5,10 +5,9 @@ import { getArticleAction, getArticleFailureAction, getArticleSuccessAction } fr
 import { ArticleService as SharedArticleService } from '../../../shared/services/article.service'
 import { ArticleInterface } from '../../../shared/types/article.interface'
 
-
 @Injectable()
 
-export class GetFeedEffect {
+export class GetArticleEffect {
 
   getArticle$ = createEffect(() => this.actions$.pipe(
     ofType(getArticleAction),
