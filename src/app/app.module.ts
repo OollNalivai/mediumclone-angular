@@ -21,6 +21,7 @@ import { FeedModule } from './shared/modules/feed/components/feed.module'
 import { FeedToggleModule } from './shared/modules/feedToggle/feedToggle.module'
 import { YourFeedModule } from './yourFeed/components/yourFeed.module';
 import { TagFeedModule } from './tagFeed/components/tagFeed.module'
+import { ArticleModule } from './article/article.module'
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { TagFeedModule } from './tagFeed/components/tagFeed.module'
     FeedModule,
     FeedToggleModule,
     YourFeedModule,
-    TagFeedModule
+    TagFeedModule,
+    ArticleModule
   ],
   providers: [
     PersistenceService,

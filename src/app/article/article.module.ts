@@ -6,18 +6,29 @@ import { reducers } from './store/reducers'
 import { RouterModule } from '@angular/router'
 import { ErrorMessageModule } from '../shared/modules/errorMessage/errorMessage.module'
 import { LoadingModule } from '../shared/modules/loading/loading.module'
-import { ArticleService as SharedArticleService} from '../shared/services/article.service'
+import { ArticleService as SharedArticleService } from '../shared/services/article.service'
 import { GetArticleEffect } from './store/effects/getArticle.effect'
+import { ArticleComponent } from './components/article/article.component'
+
+const routes = [
+  {
+    path: 'articles/:slug',
+    component: ArticleComponent
+  }
+]
 
 @NgModule({
   imports: [CommonModule,
-  EffectsModule.forFeature([GetArticleEffect]),
-  StoreModule.forFeature('article', reducers),
-  RouterModule,
-  ErrorMessageModule,
-  LoadingModule],
-  declarations: [],
-  exports: [],
+    RouterModule.forChild(routes),
+    EffectsModule.forFeature([GetArticleEffect]),
+    StoreModule.forFeature('article', reducers),
+    RouterModule,
+    ErrorMessageModule,
+    LoadingModule,
+  ],
+  declarations: [
+    ArticleComponent
+  ],
   providers: [SharedArticleService]
 })
 
