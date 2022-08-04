@@ -8,13 +8,10 @@
     class='article-preview'
     *ngFor='let article of (feed$ | async)?.articles'
   >
-
     <div class='article-meta'>
-
       <a [routerLink]="['/profiles', article.author.username]">
-        <img [src]='article.author.image' alt='' />
+        <img [src]='article.author.image' alt='image'/>
       </a>
-
       <div class='info'>
         <a [routerLink]="['/profiles', article.author.username]" class='author'>
           {{ article.author.username }}
@@ -25,23 +22,19 @@
         ADD TO FAVORITES
       </div>
     </div>
-
-    <a [routerLink]="['/aricles', article.slug]" class='preview-link'>
+    <a [routerLink]="['/articles', article.slug]" class='preview-link'>
       <h1>{{ article.title }}</h1>
       <p>{{ article.description }}</p>
       <span>Read more..</span>
-      <mc-tag-list [tags]="article.tagList"></mc-tag-list>
+      <mc-tag-list [tags]='article.tagList'></mc-tag-list>
     </a>
-
   </div>
 
-<!-- приходит кастрированный (feed$ | async).articlesCount до длинны лимита -->
-  <div style='font-size: 28px; color: red'>{{(feed$ | async).articlesCount}} (feed$ | async).articlesCount</div>
   <mc-pagination
-    [total]='(feed$ | async).articlesCount'
+    [total]='(feed$ | async)?.articlesCount'
     [limit]='limit'
     [url]='baseUrl'
-    [currentPage]='currentPage'>
-  </mc-pagination>
+    [currentPage]='currentPage'
+  ></mc-pagination>
 
 </div>
