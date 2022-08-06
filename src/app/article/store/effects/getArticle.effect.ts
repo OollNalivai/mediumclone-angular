@@ -14,7 +14,7 @@ export class GetArticleEffect {
     switchMap(({ slug }) => {
       return this.sharedArticleService.getArticle( slug )
         .pipe(map((article: ArticleInterface) => {
-            console.log('article', article)
+            // console.log('article', article)
             return getArticleSuccessAction({ article })
           }),
 

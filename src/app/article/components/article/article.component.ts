@@ -1,10 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { ArticleInterface } from '../../../shared/types/article.interface'
-import { Observable, Subscription } from 'rxjs'
 import { select, Store } from '@ngrx/store'
 import { ActivatedRoute } from '@angular/router'
 import { getArticleAction } from '../../store/actions/getArticle.action'
-import { articleSelector } from '../../store/selectors'
+import { articleSelector, errorSelector, isLoadingSelector } from '../../store/selectors'
+import { combineLatest, forkJoin, map, merge, Observable, Subscription } from 'rxjs'
+import { currentUserSelector } from '../../../auth/store/selectors'
+import { CurrentUserInterface } from '../../../shared/types/currentUser.interface'
 
 @Component({
   selector: 'mc-article',
@@ -30,19 +32,37 @@ export class ArticleComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.articleSubscription.unsubscribe()
   }
 
   private initializeValues() {
     this.slug = this.route.snapshot.paramMap.get('slug')
     console.log('this.slug = ', this.slug)
+    this.isLoading$ = this.store.pipe(select(isLoadingSelector))
+    this.error$ = this.store.pipe(select(errorSelector))
+
+    this.isAuthor$ = combineLatest([
+      this.store.pipe(select(articleSelector)),
+      this.store.pipe(select(currentUserSelector))]
+    )
+      .pipe(map(
+        ([article, currentUser]: [
+            ArticleInterface | null,
+            CurrentUserInterface | null
+        ]) => {
+          console.log('map article', article)
+          console.log('map currentUser', currentUser)
+          return false
+        }
+      ))
   }
 
   private initializeListeners() {
     this.articleSubscription = this.store
       .pipe(select(articleSelector))
       .subscribe((article: ArticleInterface | null) => {
-      this.article = article
-    })
+        this.article = article
+      })
 
   }
 
