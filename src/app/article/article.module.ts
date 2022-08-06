@@ -9,6 +9,7 @@ import { LoadingModule } from '../shared/modules/loading/loading.module'
 import { ArticleService as SharedArticleService } from '../shared/services/article.service'
 import { GetArticleEffect } from './store/effects/getArticle.effect'
 import { ArticleComponent } from './components/article/article.component'
+import { TagListModule } from '../shared/modules/tagList/tagList.module'
 
 const routes = [
   {
@@ -25,6 +26,7 @@ const routes = [
     RouterModule,
     ErrorMessageModule,
     LoadingModule,
+    TagListModule
   ],
   declarations: [
     ArticleComponent

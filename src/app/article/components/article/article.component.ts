@@ -4,7 +4,7 @@ import { select, Store } from '@ngrx/store'
 import { ActivatedRoute } from '@angular/router'
 import { getArticleAction } from '../../store/actions/getArticle.action'
 import { articleSelector, errorSelector, isLoadingSelector } from '../../store/selectors'
-import { combineLatest, forkJoin, map, merge, Observable, Subscription } from 'rxjs'
+import { combineLatest, map, Observable, Subscription } from 'rxjs'
 import { currentUserSelector } from '../../../auth/store/selectors'
 import { CurrentUserInterface } from '../../../shared/types/currentUser.interface'
 
@@ -50,14 +50,16 @@ export class ArticleComponent implements OnInit, OnDestroy {
             ArticleInterface | null,
             CurrentUserInterface | null
         ]) => {
+          if (!article || !currentUser) return false
           console.log('map article', article)
           console.log('map currentUser', currentUser)
-          return false
+          return currentUser.username === article.author.username
         }
       ))
   }
 
   private initializeListeners() {
+    // вывод самого article без subscribe
     this.articleSubscription = this.store
       .pipe(select(articleSelector))
       .subscribe((article: ArticleInterface | null) => {
