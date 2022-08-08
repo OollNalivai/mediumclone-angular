@@ -10,6 +10,7 @@ import { ArticleService as SharedArticleService } from '../shared/services/artic
 import { GetArticleEffect } from './store/effects/getArticle.effect'
 import { ArticleComponent } from './components/article/article.component'
 import { TagListModule } from '../shared/modules/tagList/tagList.module'
+import { ArticleService } from './services/article.service'
 
 const routes = [
   {
@@ -31,7 +32,7 @@ const routes = [
   declarations: [
     ArticleComponent
   ],
-  providers: [SharedArticleService]
+  providers: [SharedArticleService, ArticleService]
 })
 
 export class ArticleModule {

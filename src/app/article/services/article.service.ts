@@ -11,7 +11,7 @@ export class ArticleService {
 
   deleteArticle(slug: string): Observable<{}> {
     const url = `${environment.apiUrl}/article/${slug}`
-    return this.http.delete(url)
+    return this.http.delete<{}>(url)
   }
 
 }
