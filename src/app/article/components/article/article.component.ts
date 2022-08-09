@@ -7,6 +7,7 @@ import { articleSelector, errorSelector, isLoadingSelector } from '../../store/s
 import { combineLatest, map, Observable, Subscription } from 'rxjs'
 import { currentUserSelector } from '../../../auth/store/selectors'
 import { CurrentUserInterface } from '../../../shared/types/currentUser.interface'
+import { deleteArticleAction } from '../../store/actions/deleteArticle.action'
 
 @Component({
   selector: 'mc-article',
@@ -70,5 +71,9 @@ export class ArticleComponent implements OnInit, OnDestroy {
 
   private fetchData() {
     this.store.dispatch(getArticleAction({ slug: this.slug }))
+  }
+
+  deleteArticle(): void {
+    this.store.dispatch(deleteArticleAction({slug: this.slug}))
   }
 }
