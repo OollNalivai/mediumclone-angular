@@ -6,15 +6,13 @@ import { ArticleService as SharedArticleService } from '../../../shared/services
 import { ArticleInterface } from '../../../shared/types/article.interface'
 
 @Injectable()
-
 export class GetArticleEffect {
-
-  getArticle$ = createEffect(() => this.actions$.pipe(
-    ofType(getArticleAction),
-    switchMap(({ slug }) => {
-      return this.sharedArticleService.getArticle( slug )
-        .pipe(map((article: ArticleInterface) => {
-            // console.log('article', article)
+  getArticle$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(getArticleAction),
+      switchMap(({ slug }) => {
+        return this.sharedArticleService.getArticle(slug).pipe(
+          map((article: ArticleInterface) => {
             return getArticleSuccessAction({ article })
           }),
 
@@ -22,11 +20,13 @@ export class GetArticleEffect {
             return of(getArticleFailureAction())
           })
         )
-    })
-  ))
+      })
+    )
+  )
 
-  constructor(private actions$: Actions,
-              private sharedArticleService: SharedArticleService) {
+  constructor(
+    private actions$: Actions,
+    private sharedArticleService: SharedArticleService
+  ) {
   }
-
 }

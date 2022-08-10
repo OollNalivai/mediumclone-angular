@@ -74,6 +74,6 @@ export class ArticleComponent implements OnInit, OnDestroy {
   }
 
   deleteArticle(): void {
-    this.store.dispatch(deleteArticleAction({slug: this.slug}))
+    this.store.dispatch(deleteArticleAction({ slug: this.slug }))
   }
 }
