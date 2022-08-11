@@ -22,6 +22,7 @@ import { FeedToggleModule } from './shared/modules/feedToggle/feedToggle.module'
 import { YourFeedModule } from './yourFeed/components/yourFeed.module';
 import { TagFeedModule } from './tagFeed/components/tagFeed.module'
 import { ArticleModule } from './article/article.module'
+import { CreateArticleModule } from './createArticle/createArticle.module'
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ArticleModule } from './article/article.module'
     FeedToggleModule,
     YourFeedModule,
     TagFeedModule,
+    CreateArticleModule,  // CreateArticleModule должен стоять раньше ArticleModule, иначе ArticleModule будет перехватывать
     ArticleModule
   ],
   providers: [
