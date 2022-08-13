@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'mc-create-article',
   templateUrl: './create-article.component.html',
   styleUrls: ['./create-article.component.scss']
 })
-export class CreateArticleComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+export class CreateArticleComponent {
 
 }
