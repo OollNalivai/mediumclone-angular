@@ -27,10 +27,10 @@ export class ArticleFormComponent implements OnInit {
 
   private initializeForm(): void {
     this.form = this.fb.group({
-      title: '',
-      description: '',
-      body: '',
-      tagList: ''
+      title: this.initialValuesProps.title,
+      description: this.initialValuesProps.description,
+      body: this.initialValuesProps.body,
+      tagList: this.initialValuesProps.tagList.join(' ')
     })
   }
 
