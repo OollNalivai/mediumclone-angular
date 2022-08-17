@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common'
 import { CreateArticleComponent } from './components/create-article/create-article.component'
 import { RouterModule } from '@angular/router'
 import { ArticleFormModule } from '../shared/modules/articleForm/articleForm.module'
+import { CreateArticleService } from './services/createArticle.service'
 
 const routes = [
   {
@@ -15,7 +16,8 @@ const routes = [
   imports: [CommonModule, RouterModule.forChild(routes), ArticleFormModule, ArticleFormModule],
   declarations: [
     CreateArticleComponent
-  ]
+  ],
+  providers: [CreateArticleService]
 })
 
 export class CreateArticleModule {
