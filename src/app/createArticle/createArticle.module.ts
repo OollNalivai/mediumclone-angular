@@ -4,6 +4,8 @@ import { CreateArticleComponent } from './components/create-article/create-artic
 import { RouterModule } from '@angular/router'
 import { ArticleFormModule } from '../shared/modules/articleForm/articleForm.module'
 import { CreateArticleService } from './services/createArticle.service'
+import { EffectsModule } from '@ngrx/effects'
+import { CreateArticleAffect } from './store/effects/createArticle.affect'
 
 const routes = [
   {
@@ -13,7 +15,7 @@ const routes = [
 ]
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(routes), ArticleFormModule, ArticleFormModule],
+  imports: [CommonModule, RouterModule.forChild(routes), ArticleFormModule, ArticleFormModule, EffectsModule.forFeature([CreateArticleAffect])],
   declarations: [
     CreateArticleComponent
   ],
