@@ -15,7 +15,11 @@ const routes = [
 ]
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(routes), ArticleFormModule, ArticleFormModule, EffectsModule.forFeature([CreateArticleAffect])],
+  imports: [CommonModule,
+    RouterModule.forChild(routes),
+    ArticleFormModule,
+    EffectsModule.forFeature([CreateArticleAffect])
+  ],
   declarations: [
     CreateArticleComponent
   ],
