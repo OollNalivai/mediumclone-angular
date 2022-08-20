@@ -1,5 +1,5 @@
 import { AuthStateInterface } from '../types/authState.interface'
-import { createReducer, on } from '@ngrx/store'
+import { Action, createReducer, on } from '@ngrx/store'
 import { registerAction, registerFailureAction, registerSuccessAction } from './actions/register.action'
 import { loginAction, loginFailureAction, loginSuccessAction } from './actions/login.action'
 import {
@@ -85,6 +85,6 @@ export const authReducer = createReducer(
     })),
 )
 
-// export function reducers(state: AuthStateInterface, action: Action) {
-//   return authReducer(state, action);
-// }
+export function reducers(state: AuthStateInterface, action: Action) {
+  return authReducer(state, action);
+}
