@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router'
 import { ArticleFormModule } from '../shared/modules/articleForm/articleForm.module'
 import { CreateArticleService } from './services/createArticle.service'
 import { EffectsModule } from '@ngrx/effects'
-import { CreateArticleAffect } from './store/effects/createArticle.affect'
+import { CreateArticleEffect } from './store/effects/createArticle.effect'
 import { StoreModule } from '@ngrx/store'
 import { reducers } from './store/reducers'
 
@@ -20,7 +20,7 @@ const routes = [
   imports: [CommonModule,
     RouterModule.forChild(routes),
     ArticleFormModule,
-    EffectsModule.forFeature([CreateArticleAffect]),
+    EffectsModule.forFeature([CreateArticleEffect]),
     StoreModule.forFeature('createArticle', reducers)
   ],
   declarations: [

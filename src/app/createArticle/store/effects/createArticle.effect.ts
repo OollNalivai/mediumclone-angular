@@ -14,7 +14,7 @@ import { ArticleInterface } from '../../../shared/types/article.interface'
 
 @Injectable()
 
-export class CreateArticleAffect {
+export class CreateArticleEffect {
 
   createArticle$ = createEffect(() => this.actions$.pipe(
     ofType(createArticleAction),
@@ -22,7 +22,6 @@ export class CreateArticleAffect {
     switchMap(({ articleInput }) => {
       console.log('articleInput: ', articleInput)
       return this.createArticleService.createArticle(articleInput)
-
         .pipe(map((article: ArticleInterface) => {
             return createArticleSuccessAction({article})
           }),
@@ -40,7 +39,7 @@ export class CreateArticleAffect {
       this.actions$.pipe(
         ofType(createArticleSuccessAction),
         tap(({article}) => {
-          this.router.navigate(['/article', article.slug]).then(r => r)
+          this.router.navigate(['/articles', article.slug]).then(r => r)
         })
       ), { dispatch: false }
   )
