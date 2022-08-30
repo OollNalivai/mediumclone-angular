@@ -7,15 +7,29 @@ import { GetArticleEffect } from './store/effects/getArticle.effect'
 import { UpdateArticleEffect } from './store/effects/updateArticle.effect'
 import { StoreModule } from '@ngrx/store'
 import { reducers } from './store/reducers'
+import { LoadingModule } from '../shared/modules/loading/loading.module'
+import { EditArticleComponent } from './components/edit-article/edit-article.component'
+import { RouterModule } from '@angular/router'
+import { ArticleFormModule } from '../shared/modules/articleForm/articleForm.module'
+
+const routes = [
+  {
+    path: 'articles/:slug/edit',
+    component: EditArticleComponent
+  }
+]
 
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule.forChild(routes),
+    ArticleFormModule,
     EffectsModule.forFeature([GetArticleEffect, UpdateArticleEffect]),
-    StoreModule.forFeature('editArticle', reducers)
+    StoreModule.forFeature('editArticle', reducers),
+    LoadingModule
   ],
   declarations: [
-
+    EditArticleComponent
   ],
   providers: [
     EditArticleService,

@@ -23,12 +23,12 @@ import { YourFeedModule } from './yourFeed/components/yourFeed.module';
 import { TagFeedModule } from './tagFeed/components/tagFeed.module'
 import { ArticleModule } from './article/article.module'
 import { CreateArticleModule } from './createArticle/createArticle.module';
-import { EditArticleComponent } from './aditArticle/components/edit-article/edit-article.component'
+import { ArticleFormModule } from './shared/modules/articleForm/articleForm.module'
+import { EditArticleModule } from './aditArticle/editArticle.module'
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditArticleComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +52,9 @@ import { EditArticleComponent } from './aditArticle/components/edit-article/edit
     YourFeedModule,
     TagFeedModule,
     CreateArticleModule,  // CreateArticleModule должен стоять раньше ArticleModule, иначе ArticleModule будет перехватывать
-    ArticleModule
+    ArticleModule,
+    ArticleFormModule,
+    EditArticleModule
   ],
   providers: [
     PersistenceService,

@@ -13,7 +13,6 @@ export const isLoadingSelector =
   createSelector(editArticleFeatureSelector,
     (editArticleState: EditArticleStateInterface) => editArticleState.isLoading)
 
-
 export const validationErrorsSelector =
   createSelector(editArticleFeatureSelector,
     (editArticleState: EditArticleStateInterface) => editArticleState.validationErrors)
