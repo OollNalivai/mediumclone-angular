@@ -25,6 +25,7 @@ import { ArticleModule } from './article/article.module'
 import { CreateArticleModule } from './createArticle/createArticle.module';
 import { ArticleFormModule } from './shared/modules/articleForm/articleForm.module'
 import { EditArticleModule } from './aditArticle/editArticle.module'
+import { SettingsModule } from './settings/settings.module'
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { EditArticleModule } from './aditArticle/editArticle.module'
     CreateArticleModule,  // CreateArticleModule должен стоять раньше ArticleModule, иначе ArticleModule будет перехватывать
     ArticleModule,
     ArticleFormModule,
-    EditArticleModule
+    EditArticleModule,
+    SettingsModule
   ],
   providers: [
     PersistenceService,
