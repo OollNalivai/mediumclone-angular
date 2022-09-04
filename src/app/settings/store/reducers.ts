@@ -1,6 +1,9 @@
 import { SettingsStateInterface } from '../types/settingsStateInterface'
-import { createReducer, on } from '@ngrx/store'
-import { updateCurrentUserAction } from '../../auth/store/actions/updateCurrentUser.action'
+import { Action, createReducer, on } from '@ngrx/store'
+import {
+  updateCurrentUserAction, updateCurrentUserFailureAction,
+  updateCurrentUserSuccessAction
+} from '../../auth/store/actions/updateCurrentUser.action'
 
 const initialState: SettingsStateInterface = {
   isSubmitting: false,
@@ -13,5 +16,21 @@ const settingsReducer = createReducer(
     (state): SettingsStateInterface => ({
       ...state,
       isSubmitting: true
+    })),
+  on(updateCurrentUserSuccessAction,
+    (state): SettingsStateInterface => ({
+      ...state,
+      isSubmitting: false
+    })),
+  on(updateCurrentUserFailureAction,
+    (state, action): SettingsStateInterface => ({
+      ...state,
+      isSubmitting: false,
+      validationErrors: action.errors
     }))
 )
+
+
+export function reducers(state: SettingsStateInterface, action: Action) {
+  return settingsReducer(state, action)
+}
