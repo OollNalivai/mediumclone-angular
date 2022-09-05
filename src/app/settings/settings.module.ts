@@ -4,6 +4,7 @@ import { SettingsComponent } from './components/settings/settings.component'
 import { RouterModule } from '@angular/router'
 import { StoreModule } from '@ngrx/store'
 import { reducers } from './store/reducers'
+import { ReactiveFormsModule } from '@angular/forms'
 
 const routes = [
   {
@@ -16,7 +17,8 @@ const routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    StoreModule.forFeature('settings', reducers)
+    StoreModule.forFeature('settings', reducers),
+    ReactiveFormsModule
   ],
   declarations: [
     SettingsComponent
