@@ -55,4 +55,12 @@ export class SettingsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.currentUserSubscription.unsubscribe()
   }
+
+  submit() {
+
+  }
+
+  logout() {
+
+  }
 }
