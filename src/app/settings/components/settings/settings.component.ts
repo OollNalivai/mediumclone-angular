@@ -6,6 +6,8 @@ import { filter, Observable, Subscription } from 'rxjs'
 import { currentUserSelector } from '../../../auth/store/selectors'
 import { BackendErrorsInterface } from '../../../shared/types/backendErrors.interface'
 import { isSubmittingSelector, validationErrorsSelector } from '../../store/selectors'
+import { CurrentUserInputInterface } from '../../../shared/types/currentUserInput.interface'
+import { updateCurrentUserAction } from '../../../auth/store/actions/updateCurrentUser.action'
 
 @Component({
   selector: 'mc-settings',
@@ -56,11 +58,15 @@ export class SettingsComponent implements OnInit, OnDestroy {
     this.currentUserSubscription.unsubscribe()
   }
 
-  submit() {
-
+  submit(): void {
+    const currentUserInput: CurrentUserInputInterface = {
+      ...this.currentUser,
+      ...this.form.value
+    }
+    this.store.dispatch(updateCurrentUserAction({currentUserInput}))
   }
 
-  logout() {
+  logout(): void {
 
   }
 }
