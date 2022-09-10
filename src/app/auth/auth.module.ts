@@ -15,6 +15,7 @@ import { PersistenceService } from '../shared/services/persistence.service';
 import { LoginComponent } from './components/login/login.component'
 import { GetCurrentUserEffect } from './store/effects/getCurrentUser.effect'
 import { UpdateCurrentUserEffect } from './store/effects/updateCurrentUser.effect'
+import { LogoutEffect } from './store/effects/logout.effect'
 
 
 const routes: Routes = [
@@ -39,7 +40,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     // StoreModule.forFeature('auth', reducers)
     StoreModule.forFeature('auth', authReducer),
-    EffectsModule.forFeature([RegisterEffect, LoginEffect, GetCurrentUserEffect, UpdateCurrentUserEffect]),
+    EffectsModule.forFeature([RegisterEffect, LoginEffect, GetCurrentUserEffect, UpdateCurrentUserEffect, LogoutEffect]),
     BackendErrorMessagesModule
   ],
   providers: [
