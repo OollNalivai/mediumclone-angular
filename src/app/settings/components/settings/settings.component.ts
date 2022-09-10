@@ -8,6 +8,7 @@ import { BackendErrorsInterface } from '../../../shared/types/backendErrors.inte
 import { isSubmittingSelector, validationErrorsSelector } from '../../store/selectors'
 import { CurrentUserInputInterface } from '../../../shared/types/currentUserInput.interface'
 import { updateCurrentUserAction } from '../../../auth/store/actions/updateCurrentUser.action'
+import { logoutAction } from '../../../auth/store/sync.action'
 
 @Component({
   selector: 'mc-settings',
