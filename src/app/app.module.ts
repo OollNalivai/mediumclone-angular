@@ -26,6 +26,7 @@ import { CreateArticleModule } from './createArticle/createArticle.module';
 import { ArticleFormModule } from './shared/modules/articleForm/articleForm.module'
 import { EditArticleModule } from './aditArticle/editArticle.module'
 import { SettingsModule } from './settings/settings.module'
+import { AddToFavoritesModule } from './shared/modules/addToFavorites/addToFavorites.module'
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { SettingsModule } from './settings/settings.module'
     ArticleModule,
     ArticleFormModule,
     EditArticleModule,
-    SettingsModule
+    SettingsModule,
+    AddToFavoritesModule
   ],
   providers: [
     PersistenceService,
