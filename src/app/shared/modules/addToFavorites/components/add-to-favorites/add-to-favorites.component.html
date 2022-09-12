@@ -1,1 +1,10 @@
-<p>add-to-favorites works!</p>
+<button (click)='handleLike()'
+        [ngClass]="{
+        btn: true,
+        'btn-sm': true,
+        'btn-primary': isFavorite,
+        'btn-outline-primary': !isFavorite
+        }">
+  <i class='ion-heart'></i>
+  <span>&nbsp; {{ favoritesCount }}</span>
+</button>
