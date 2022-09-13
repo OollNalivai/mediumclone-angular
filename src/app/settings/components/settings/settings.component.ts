@@ -49,7 +49,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
   initializeListeners(): void {
     this.currentUserSubscription = this.store
       .pipe(select(currentUserSelector), filter(Boolean))
-      .subscribe((currentUser) => {
+      .subscribe((currentUser: CurrentUserInterface) => {
         this.currentUser = currentUser
         this.initializeForm()
       })
