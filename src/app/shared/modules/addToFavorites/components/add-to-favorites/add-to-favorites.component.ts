@@ -9,7 +9,7 @@ export class AddToFavoritesComponent implements OnInit {
 
   @Input('isFavorite') isFavoriteProps: boolean
   @Input('articleSlug') articleSlugProps: string
-  @Input('favoritesCount') favoritesCountProps: number = 0
+  @Input('favoritesCount') favoritesCountProps: number
   favoritesCount: number
   isFavorite: boolean
 

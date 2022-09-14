@@ -3,14 +3,13 @@
 <mc-error-message *ngIf='error$ | async'></mc-error-message>
 
 <div *ngIf='feed$ | async'>
-
   <div
     class='article-preview'
     *ngFor='let article of (feed$ | async)?.articles'
   >
     <div class='article-meta'>
       <a [routerLink]="['/profiles', article.author.username]">
-        <img [src]='article.author.image' alt='image'/>
+        <img [src]='article.author.image' />
       </a>
       <div class='info'>
         <a [routerLink]="['/profiles', article.author.username]" class='author'>
@@ -19,10 +18,11 @@
         <span class='date'>{{ article.createdAt }}</span>
       </div>
       <div class='pull-xs-right'>
-        <mc-add-to-favorites>
+        <mc-add-to-favorites
           [isFavorite]='article.favorited'
           [articleSlug]='article.slug'
           [favoritesCount]='article.favoritesCount'
+        >
         </mc-add-to-favorites>
       </div>
     </div>
@@ -33,12 +33,10 @@
       <mc-tag-list [tags]='article.tagList'></mc-tag-list>
     </a>
   </div>
-
   <mc-pagination
     [total]='(feed$ | async)?.articlesCount'
     [limit]='limit'
     [url]='baseUrl'
     [currentPage]='currentPage'
   ></mc-pagination>
-
 </div>
