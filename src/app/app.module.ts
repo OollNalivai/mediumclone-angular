@@ -15,18 +15,13 @@ import { TopBarModule } from './shared/modules/topBar/topBar.module'
 import { PersistenceService } from './shared/services/persistence.service'
 import { AuthInterceptor } from './shared/services/authInterceptor.service';
 import { GlobalFeedModule } from './globalFeed/globalFeed.module';
-import { BannerModule } from './shared/modules/banner/banner.module'
-import { PopularTagsModule } from './shared/modules/popularTags/popularTags.module'
-import { FeedModule } from './shared/modules/feed/feed.module'
-import { FeedToggleModule } from './shared/modules/feedToggle/feedToggle.module'
 import { YourFeedModule } from './yourFeed/components/yourFeed.module';
 import { TagFeedModule } from './tagFeed/components/tagFeed.module'
 import { ArticleModule } from './article/article.module'
 import { CreateArticleModule } from './createArticle/createArticle.module';
-import { ArticleFormModule } from './shared/modules/articleForm/articleForm.module'
 import { EditArticleModule } from './aditArticle/editArticle.module'
 import { SettingsModule } from './settings/settings.module'
-import { AddToFavoritesModule } from './shared/modules/addToFavorites/addToFavorites.module'
+import { UserProfileModule } from './userProfile/userProfile.module'
 
 @NgModule({
   declarations: [
@@ -47,18 +42,13 @@ import { AddToFavoritesModule } from './shared/modules/addToFavorites/addToFavor
     StoreRouterConnectingModule.forRoot(),
     TopBarModule,
     GlobalFeedModule,
-    BannerModule,
-    PopularTagsModule,
-    FeedModule,
-    FeedToggleModule,
     YourFeedModule,
     TagFeedModule,
     CreateArticleModule,  // CreateArticleModule должен стоять раньше ArticleModule, иначе ArticleModule будет перехватывать
     ArticleModule,
-    ArticleFormModule,
     EditArticleModule,
     SettingsModule,
-    AddToFavoritesModule
+    UserProfileModule
   ],
   providers: [
     PersistenceService,
