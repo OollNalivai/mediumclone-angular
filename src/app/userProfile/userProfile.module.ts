@@ -3,6 +3,10 @@ import { CommonModule } from '@angular/common';
 import { UserProfileComponent } from './components/user-profile/user-profile.component'
 import { RouterModule } from '@angular/router'
 import { UserProfileService } from './services/userProfile.service'
+import { EffectsModule } from '@ngrx/effects'
+import { GetUserProfileEffect } from './store/effects/getUserProfile.effect'
+import { StoreModule } from '@ngrx/store'
+import { reducers } from './store/reducers'
 
 const routes = [
   {
@@ -16,7 +20,11 @@ const routes = [
 ]
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    EffectsModule.forFeature([GetUserProfileEffect]),
+  StoreModule.forFeature('userProfile', reducers)],
   declarations: [
     UserProfileComponent
   ],
