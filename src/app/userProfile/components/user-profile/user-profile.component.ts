@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core'
 import { ProfileInterface } from '../../../shared/types/profile.interface'
-import { Observable, Subscription } from 'rxjs'
+import { filter, map, Observable, Subscription } from 'rxjs'
 import { select, Store } from '@ngrx/store'
 import { ActivatedRoute, Router } from '@angular/router'
 import { getUserProfileAction } from '../../store/actions/getUserProfile.action'
-import { errorSelector, isLoadingSelector } from '../../store/selectors'
+import { errorSelector, isLoadingSelector, userProfileSelector } from '../../store/selectors'
+import { combineLatest } from 'rxjs/operators'
+import { currentUserSelector } from '../../../auth/store/selectors'
+import { CurrentUserInterface } from '../../../shared/types/currentUser.interface'
+import { articleSelector } from '../../../article/store/selectors'
 
 @Component({
   selector: 'mc-user-profile',
@@ -16,11 +20,15 @@ export class UserProfileComponent implements OnInit {
   userProfile: ProfileInterface
   isLoading$: Observable<boolean>
   error$: Observable<string | null>
+  isCurrentUserProfile$: Observable<boolean>
   userProfileSubscription: Subscription
   slug: string
   apiUrl: string
 
-  constructor(private store: Store, private route: ActivatedRoute, private router: Router) {
+  constructor(
+    private store: Store,
+    private route: ActivatedRoute,
+    private router: Router) {
   }
 
   ngOnInit(): void {
@@ -36,6 +44,21 @@ export class UserProfileComponent implements OnInit {
     this.apiUrl = isFavorites
       ? `/articles?favorited=${this.slug}`
       : `/articles?author=${this.slug}`
+    this.isCurrentUserProfile$ = combineLatest(
+      this.store.pipe(select(currentUserSelector), filter(Boolean)),
+      this.store.pipe(select(userProfileSelector), filter(Boolean))
+    )
+      .pipe(map(
+          ([currentUser, userProfile]:
+             [CurrentUserInterface, ProfileInterface]) => {
+            return currentUser.username === userProfile.username
+          }
+        )
+      )
+  }
+
+  initializeListeners(): void {
+
   }
 
   fetchData(): void {
