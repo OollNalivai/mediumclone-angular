@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnDestroy, OnInit } from '@angular/core'
 import { ProfileInterface } from '../../../shared/types/profile.interface'
 import { combineLatest, map, Observable, Subscription } from 'rxjs'
 import { select, Store } from '@ngrx/store'
@@ -13,7 +13,7 @@ import { CurrentUserInterface } from '../../../shared/types/currentUser.interfac
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss']
 })
-export class UserProfileComponent implements OnInit {
+export class UserProfileComponent implements OnInit, OnDestroy {
 
   userProfile: ProfileInterface
   isLoading$: Observable<boolean>
@@ -71,6 +71,10 @@ export class UserProfileComponent implements OnInit {
 
   fetchUserProfile(): void {
     this.store.dispatch(getUserProfileAction({ slug: this.slug }))
+  }
+
+  ngOnDestroy(): void {
+    this.userProfileSubscription.unsubscribe()
   }
 
 }
