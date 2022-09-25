@@ -11,17 +11,17 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { EffectsModule } from '@ngrx/effects';
-import { TopBarModule } from './shared/modules/topBar/topBar.module'
+import { TopBarModule } from './shared/modules/top-bar/top-bar.module'
 import { PersistenceService } from './shared/services/persistence.service'
 import { AuthInterceptor } from './shared/services/authInterceptor.service';
-import { GlobalFeedModule } from './globalFeed/globalFeed.module';
-import { YourFeedModule } from './yourFeed/components/yourFeed.module';
-import { TagFeedModule } from './tagFeed/components/tagFeed.module'
+import { GlobalFeedModule } from './global-feed/global-feed.module';
+import { YourFeedModule } from './your-feed/components/your-feed.module';
+import { TagFeedModule } from './tag-feed/components/tag-feed.module'
 import { ArticleModule } from './article/article.module'
-import { CreateArticleModule } from './createArticle/createArticle.module';
-import { EditArticleModule } from './aditArticle/editArticle.module'
+import { CreateArticleModule } from './create-article/create-article.module';
+import { EditArticleModule } from './adit-article/edit-article.module'
 import { SettingsModule } from './settings/settings.module'
-import { UserProfileModule } from './userProfile/userProfile.module'
+import { UserProfileModule } from './user-profile/user-profile.module'
 
 @NgModule({
   declarations: [

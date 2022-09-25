@@ -1,5 +1,5 @@
-import { FeedStateInterface } from '../types/feedState.interface'
-import { AppStateInterface } from '../../../types/appState.interface'
+import { FeedStateInterface } from '../types/feed-state.interface'
+import { AppStateInterface } from '../../../types/app-state.interface'
 import { createSelector } from '@ngrx/store'
 
 export const feedFeatureSelector =

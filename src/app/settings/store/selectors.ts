@@ -1,6 +1,6 @@
-import { AppStateInterface } from '../../shared/types/appState.interface'
+import { AppStateInterface } from '../../shared/types/app-state.interface'
 import { createSelector } from '@ngrx/store'
-import { SettingsStateInterface } from '../types/settingsStateInterface'
+import { SettingsStateInterface } from '../types/settings-stateInterface'
 
 export const settingsFeatureSelector =
   (state: AppStateInterface): SettingsStateInterface => state.settings;

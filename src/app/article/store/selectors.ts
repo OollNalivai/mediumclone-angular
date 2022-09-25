@@ -1,6 +1,6 @@
 import { createSelector } from '@ngrx/store'
-import { ArticleStateInterface } from '../types/articleState.interface'
-import { AppStateInterface } from '../../shared/types/appState.interface'
+import { ArticleStateInterface } from '../types/article-state.interface'
+import { AppStateInterface } from '../../shared/types/app-state.interface'
 
 export const articleFeatureSelector =
   (state: AppStateInterface): ArticleStateInterface => state.article

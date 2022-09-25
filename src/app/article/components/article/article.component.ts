@@ -2,12 +2,12 @@ import { Component, OnDestroy, OnInit } from '@angular/core'
 import { ArticleInterface } from '../../../shared/types/article.interface'
 import { select, Store } from '@ngrx/store'
 import { ActivatedRoute } from '@angular/router'
-import { getArticleAction } from '../../store/actions/getArticle.action'
+import { getArticleAction } from '../../store/actions/get-article.action'
 import { articleSelector, errorSelector, isLoadingSelector } from '../../store/selectors'
 import { combineLatest, map, Observable, Subscription } from 'rxjs'
 import { currentUserSelector } from '../../../auth/store/selectors'
 import { CurrentUserInterface } from '../../../shared/types/currentUser.interface'
-import { deleteArticleAction } from '../../store/actions/deleteArticle.action'
+import { deleteArticleAction } from '../../store/actions/delete-article.action'
 
 @Component({
   selector: 'mc-article',

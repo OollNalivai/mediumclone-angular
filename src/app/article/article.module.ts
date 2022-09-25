@@ -4,14 +4,14 @@ import { EffectsModule } from '@ngrx/effects'
 import { StoreModule } from '@ngrx/store'
 import { reducers } from './store/reducers'
 import { RouterModule } from '@angular/router'
-import { ErrorMessageModule } from '../shared/modules/errorMessage/errorMessage.module'
+import { ErrorMessageModule } from '../shared/modules/error-message/error-message.module'
 import { LoadingModule } from '../shared/modules/loading/loading.module'
 import { ArticleService as SharedArticleService } from '../shared/services/article.service'
-import { GetArticleEffect } from './store/effects/getArticle.effect'
+import { GetArticleEffect } from './store/effects/get-article.effect'
 import { ArticleComponent } from './components/article/article.component'
-import { TagListModule } from '../shared/modules/tagList/tagList.module'
+import { TagListModule } from '../shared/modules/tag-list/tag-list.module'
 import { ArticleService } from './services/article.service'
-import { DeleteArticleEffect } from './store/effects/deleteArticle.effect'
+import { DeleteArticleEffect } from './store/effects/delete-article.effect'
 
 const routes = [
   {

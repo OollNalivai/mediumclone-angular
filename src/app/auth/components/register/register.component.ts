@@ -4,9 +4,9 @@ import { select, Store } from '@ngrx/store'
 import { registerAction } from '../../store/actions/register.action';
 import { Observable } from 'rxjs'
 import { isSubmittingSelector, validationErrorsSelector } from '../../store/selectors'
-import { AppStateInterface } from '../../../shared/types/appState.interface'
-import { RegisterRequestInterface } from '../../types/registerRequest.interface'
-import { BackendErrorsInterface } from '../../../shared/types/backendErrors.interface'
+import { AppStateInterface } from '../../../shared/types/app-state.interface'
+import { RegisterRequestInterface } from '../../types/register-request.interface'
+import { BackendErrorsInterface } from '../../../shared/types/backend-errors.interface'
 
 @Component({
   selector: 'mc-register',

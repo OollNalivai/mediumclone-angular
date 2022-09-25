@@ -1,7 +1,7 @@
 import { Action, createReducer, on } from '@ngrx/store'
 import { routerNavigationAction } from '@ngrx/router-store'
-import { ArticleStateInterface } from '../types/articleState.interface'
-import { getArticleAction, getArticleFailureAction, getArticleSuccessAction } from './actions/getArticle.action'
+import { ArticleStateInterface } from '../types/article-state.interface'
+import { getArticleAction, getArticleFailureAction, getArticleSuccessAction } from './actions/get-article.action'
 
 const initialState: ArticleStateInterface = {
   isLoading: false,

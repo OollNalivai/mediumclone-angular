@@ -1,9 +1,9 @@
-import { SettingsStateInterface } from '../types/settingsStateInterface'
+import { SettingsStateInterface } from '../types/settings-stateInterface'
 import { Action, createReducer, on } from '@ngrx/store'
 import {
   updateCurrentUserAction, updateCurrentUserFailureAction,
   updateCurrentUserSuccessAction
-} from '../../auth/store/actions/updateCurrentUser.action'
+} from '../../auth/store/actions/update-current-user.action'
 
 const initialState: SettingsStateInterface = {
   isSubmitting: false,

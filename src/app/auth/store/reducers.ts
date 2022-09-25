@@ -1,4 +1,4 @@
-import { AuthStateInterface } from '../types/authState.interface'
+import { AuthStateInterface } from '../types/auth-state.interface'
 import { Action, createReducer, on } from '@ngrx/store'
 import { registerAction, registerFailureAction, registerSuccessAction } from './actions/register.action'
 import { loginAction, loginFailureAction, loginSuccessAction } from './actions/login.action'
@@ -6,8 +6,8 @@ import {
   getCurrentUserAction,
   getCurrentUserFailureAction,
   getCurrentUserSuccessAction
-} from './actions/getCurrentUser.action'
-import { updateCurrentUserSuccessAction } from './actions/updateCurrentUser.action'
+} from './actions/get-current-user.action'
+import { updateCurrentUserSuccessAction } from './actions/update-current-user.action'
 import { logoutAction } from './sync.action'
 
 const initialState: AuthStateInterface = {

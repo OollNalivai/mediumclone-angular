@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { RegisterRequestInterface } from '../types/registerRequest.interface'
+import { RegisterRequestInterface } from '../types/register-request.interface'
 import { map, Observable } from 'rxjs'
 import { CurrentUserInterface } from '../../shared/types/currentUser.interface'
 import { environment } from '../../../environments/environment'
-import { AuthResponseInterface } from '../types/authResponse.interface'
-import { LoginRequestInterface } from '../types/loginRequest.interface'
-import { CurrentUserInputInterface } from '../../shared/types/currentUserInput.interface'
+import { AuthResponseInterface } from '../types/auth-response.interface'
+import { LoginRequestInterface } from '../types/login-request.interface'
+import { CurrentUserInputInterface } from '../../shared/types/current-userInput.interface'
 
 @Injectable()
 

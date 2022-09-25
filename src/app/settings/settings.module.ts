@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router'
 import { StoreModule } from '@ngrx/store'
 import { reducers } from './store/reducers'
 import { ReactiveFormsModule } from '@angular/forms'
-import { BackendErrorMessagesModule } from '../shared/modules/backendErrorMessages/backendErrorMessages.module'
+import { BackendErrorMessagesModule } from '../shared/modules/backend-error-messages/backend-error-messages.module'
 
 const routes = [
   {

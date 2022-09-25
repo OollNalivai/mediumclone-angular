@@ -4,10 +4,10 @@ import { select, Store } from '@ngrx/store'
 import { CurrentUserInterface } from '../../../shared/types/currentUser.interface'
 import { filter, Observable, Subscription } from 'rxjs'
 import { currentUserSelector } from '../../../auth/store/selectors'
-import { BackendErrorsInterface } from '../../../shared/types/backendErrors.interface'
+import { BackendErrorsInterface } from '../../../shared/types/backend-errors.interface'
 import { isSubmittingSelector, validationErrorsSelector } from '../../store/selectors'
-import { CurrentUserInputInterface } from '../../../shared/types/currentUserInput.interface'
-import { updateCurrentUserAction } from '../../../auth/store/actions/updateCurrentUser.action'
+import { CurrentUserInputInterface } from '../../../shared/types/current-userInput.interface'
+import { updateCurrentUserAction } from '../../../auth/store/actions/update-current-user.action'
 import { logoutAction } from '../../../auth/store/sync.action'
 
 @Component({
