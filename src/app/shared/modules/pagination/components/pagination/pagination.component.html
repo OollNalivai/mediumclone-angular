@@ -1,16 +1,11 @@
 <ul class='pagination'>
-
   <li *ngFor='let page of pages'
       class='page-item'
       [ngClass]='{active: currentPageProps === page}'>
-<!-- mb delete [] in urlProps-->
+    <!-- mb delete [] in urlProps-->
     <a [routerLink]='[urlProps]'
        class='page-link'
        [queryParams]='{page: page}'>{{ page }}
     </a>
-
   </li>
-
-  Logs: total: {{ totalProps }},limit: {{ limitProps }}, baseUrl:{{ urlProps }},pages: {{ pages }}
-
 </ul>

@@ -53,6 +53,7 @@ export class FeedComponent implements OnInit, OnDestroy, OnChanges {
     this.queryParamsSubscription = this.route.queryParams.subscribe(
       (params: Params) => {
         this.currentPage = Number(params['page'] || '1')
+        console.log(this.currentPage)
         this.fetchFeed()
       })
   }
@@ -66,7 +67,6 @@ export class FeedComponent implements OnInit, OnDestroy, OnChanges {
       ...parsedUrl.query
     })
     const apiUrlWithParams = `${parsedUrl.url}?${stringifyParams}`
-    // console.log('apiUrlWithParams', apiUrlWithParams)
     this.store.dispatch(getFeedAction({ url: apiUrlWithParams }))
   }
 
