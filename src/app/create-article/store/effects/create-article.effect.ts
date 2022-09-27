@@ -20,14 +20,12 @@ export class CreateArticleEffect {
     ofType(createArticleAction),
 
     switchMap(({ articleInput }) => {
-      console.log('articleInput: ', articleInput)
       return this.createArticleService.createArticle(articleInput)
         .pipe(map((article: ArticleInterface) => {
             return createArticleSuccessAction({article})
           }),
 
           catchError((errorResponse: HttpErrorResponse) => {
-            console.log('Register Effect Error', catchError)
             return of(createArticleFailureAction({ errors: errorResponse.error.errors }))
           })
         )

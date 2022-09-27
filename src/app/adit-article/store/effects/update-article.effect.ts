@@ -21,14 +21,12 @@ export class UpdateArticleEffect {
     ofType(updateArticleAction),
 
     switchMap(({ articleInput, slug }) => {
-      console.log('articleInput: ', articleInput, 'slug: ', slug)
       return this.editArticleService.updateArticle(slug, articleInput)
         .pipe(map((article: ArticleInterface) => {
             return updateArticleSuccessAction({ article })
           }),
 
           catchError((errorResponse: HttpErrorResponse) => {
-            console.log('Register Effect Error', catchError)
             return of(updateArticleFailureAction({ errors: errorResponse.error.errors }))
           })
         )

@@ -20,17 +20,14 @@ export class RegisterEffect {
     ofType(registerAction),
 
     switchMap(({ request }) => {
-      console.log('register Action request', request)
       return this.authService.register(request)
 
         .pipe(map((currentUser: CurrentUserInterface) => {
-            console.log('current User', currentUser)
             this.persistenceService.set('accessToken', currentUser.token)
             return registerSuccessAction({ currentUser })
           }),
 
           catchError((errorResponse: HttpErrorResponse) => {
-            console.log('Register Effect Error', catchError)
             return of(registerFailureAction({ errors: errorResponse.error.errors }))
           })
         )

@@ -38,7 +38,6 @@ export class ArticleComponent implements OnInit, OnDestroy {
 
   private initializeValues() {
     this.slug = this.route.snapshot.paramMap.get('slug')
-    console.log('this.slug = ', this.slug)
     this.isLoading$ = this.store.pipe(select(isLoadingSelector))
     this.error$ = this.store.pipe(select(errorSelector))
 
@@ -52,15 +51,12 @@ export class ArticleComponent implements OnInit, OnDestroy {
             CurrentUserInterface | null
         ]) => {
           if (!article || !currentUser) return false
-          console.log('map article', article)
-          console.log('map currentUser', currentUser)
           return currentUser.username === article.author.username
         }
       ))
   }
 
   private initializeListeners() {
-    // вывод самого article без subscribe
     this.articleSubscription = this.store
       .pipe(select(articleSelector))
       .subscribe((article: ArticleInterface | null) => {

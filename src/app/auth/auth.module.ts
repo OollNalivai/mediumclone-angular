@@ -38,7 +38,6 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
-    // StoreModule.forFeature('auth', reducers)
     StoreModule.forFeature('auth', authReducer),
     EffectsModule.forFeature([RegisterEffect, LoginEffect, GetCurrentUserEffect, UpdateCurrentUserEffect, LogoutEffect]),
     BackendErrorMessagesModule

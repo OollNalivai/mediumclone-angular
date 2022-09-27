@@ -18,15 +18,12 @@ export class UpdateCurrentUserEffect {
     ofType(updateCurrentUserAction),
 
     switchMap(({ currentUserInput }) => {
-      console.log('currentUserInput Action request', currentUserInput)
       return this.authService.updateCurrentUser(currentUserInput)
         .pipe(map((currentUser: CurrentUserInterface) => {
-            console.log('updateCurrentUser current User', currentUser)
             return updateCurrentUserSuccessAction({ currentUser })
           }),
 
           catchError((errorResponse: HttpErrorResponse) => {
-            console.log('Register Effect Error', catchError)
             return of(updateCurrentUserFailureAction({ errors: errorResponse.error.errors }))
           })
         )

@@ -21,17 +21,14 @@ export class LoginEffect {
     ofType(loginAction),
 
     switchMap(({ request }) => {
-      console.log('register Action request', request)
       return this.authService.login(request)
 
         .pipe(map((currentUser: CurrentUserInterface) => {
-            console.log('current User', currentUser)
             this.persistenceService.set('accessToken', currentUser.token)
             return loginSuccessAction({ currentUser })
           }),
 
           catchError((errorResponse: HttpErrorResponse) => {
-            console.log('Register Effect Error', catchError)
             return of(loginFailureAction({ errors: errorResponse.error.errors }))
           })
         )

@@ -15,14 +15,12 @@ export class GetArticleEffect {
     ofType(getArticleAction),
 
     switchMap(({ slug }) => {
-      console.log('getArticle$ slug: ', slug)
       return this.sharedArticleService.getArticle(slug)
         .pipe(map((article: ArticleInterface) => {
             return getArticleSuccessAction({ article })
           }),
 
           catchError(() => {
-            console.log('Register Effect Error', catchError)
             return of(getArticleFailureAction())
           })
         )
