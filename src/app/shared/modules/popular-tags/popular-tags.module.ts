@@ -13,9 +13,9 @@ import { RouterModule } from '@angular/router'
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     StoreModule.forFeature('popularTags', reducers),
     EffectsModule.forFeature([GetPopularTagsEffect]),
-    RouterModule,
     LoadingModule,
     ErrorMessageModule
   ],

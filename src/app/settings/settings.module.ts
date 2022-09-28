@@ -17,9 +17,9 @@ const routes = [
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('settings', reducers),
-    ReactiveFormsModule,
     BackendErrorMessagesModule
   ],
   declarations: [

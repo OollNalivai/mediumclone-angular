@@ -16,9 +16,9 @@ import { AddToFavoritesModule } from '../add-to-favorites/add-to-favorites.modul
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     EffectsModule.forFeature([GetFeedEffect]),
     StoreModule.forFeature('feed', reducers),
-    RouterModule,
     ErrorMessageModule,
     LoadingModule,
     PaginationModule,

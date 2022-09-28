@@ -21,7 +21,8 @@ const routes = [
 ]
 
 @NgModule({
-  imports: [CommonModule,
+  imports: [
+    CommonModule,
     RouterModule.forChild(routes),
     EffectsModule.forFeature([GetArticleEffect, DeleteArticleEffect]),
     StoreModule.forFeature('article', reducers),

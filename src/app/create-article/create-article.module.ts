@@ -19,9 +19,9 @@ const routes = [
 @NgModule({
   imports: [CommonModule,
     RouterModule.forChild(routes),
-    ArticleFormModule,
     EffectsModule.forFeature([CreateArticleEffect]),
-    StoreModule.forFeature('createArticle', reducers)
+    StoreModule.forFeature('createArticle', reducers),
+    ArticleFormModule
   ],
   declarations: [
     CreateArticleComponent

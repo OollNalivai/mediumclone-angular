@@ -23,9 +23,9 @@ const routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    ArticleFormModule,
     EffectsModule.forFeature([GetArticleEffect, UpdateArticleEffect]),
     StoreModule.forFeature('editArticle', reducers),
+    ArticleFormModule,
     LoadingModule
   ],
   declarations: [
